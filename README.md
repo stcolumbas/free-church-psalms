@@ -7,7 +7,7 @@ The purpose of this project is to make Sing Psalms (copyright Free Church of Sco
 
 ## Quickstart
 
-If you just want to download the files please go to [free-church-psalms.github.io]
+If you just want to download the files please go to *coming soon*.
 
 ## Formats
 
