@@ -1,4 +1,4 @@
 psalms
 ======
 
-Psalm Resources for Screens
+Coming soon!
