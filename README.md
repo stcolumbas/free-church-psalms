@@ -3,7 +3,7 @@ Free Church Psalms
 
 *Please note that this is currently a work in progress - some formatting bugs are still being worked out.*
 
-The purpose of this project is to make Sing Psalms (copyright Free Church of Scotland) and the Traditional Psalms (1650 revised words) easily downloadable for churches.
+The purpose of this project is to make Sing Psalms (copyright Free Church of Scotland) and the Scottish Psalter (1650 revised words) easily downloadable for churches.
 
 ## Quickstart
 
