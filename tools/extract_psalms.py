@@ -6,8 +6,6 @@ import sys
 
 import docx
 
-from halo import Halo
-
 re_trad_metres = re.compile(r"(PSALM) ([0-9]+)(.*)(C\.M\.|L\.M\.|S\.M\.|10 10 10 10 10|8 7 8 7 iambic|6 6 6 6 8 8|6 6 6 6 D)")
 re_sp_metres = re.compile(r"10 10 10 10 10 10|10 10 10 10 10|10 10 10 10|10 7 7 10|10 9 10 9 9 9|10 9 10 9 anapaestic|10 9 10 9 trochaic|11 10 11 10 dactylic|11 10 11 10|11 11 11 11|11 11 11|12 11 12 11 \+ 12 11|12 12 12 12 anapaestic|6 6 6 6 8 8|6 6 6 6 D|6 6 6 6|6 8 8 6|7 7 7 7|7 6 7 6 D|7 6 7 6|8 6 8 8 6|8 7 8 7 7 7|8 7 8 7 8 7|8 7 8 7 D|8 7 8 7 iambic|8 7 8 7|8 8 8 8 6 6 6 6 8|8 8 8 8 8 8|8 8 8 8 anapaestic|9 8 9 8 8 8|9 8 9 8|9 9 9 9 anapaestic|C\.M\.|D.L.M.|D\.C\.M\.|L\.M\.|S\.M\.")
 
@@ -130,6 +128,6 @@ def extract_trad_psalms():
 
 
 if __name__ == '__main__':
-    with Halo(text='Extracting Psalms and saving as JSON', spinner='dots'):
-        extract_sing_psalms()
-        extract_trad_psalms()
+    print('Extracting Psalms and saving as JSON')
+    extract_sing_psalms()
+    extract_trad_psalms()
