@@ -49,11 +49,11 @@ def convert_unicode_chars(text):
     return ''.join(chars)
 
 
-def MakeRTFBlob(text, font_colour):
+def MakeRTFBlob(text, font_colour, font_size):
     slide = '{\\rtf1\\ansi\\ansicpg1252\\cocoartf1038\\cocoasubrtf360{\\fonttbl\\f0\\fswiss\\fcharset0 ' + DEFAULT_FONT + ';}' \
         + '{\\colortbl;\\red' + font_colour[0] + '\\green' + font_colour[1] + '\\blue' + font_colour[2] + ';}' \
         + '\\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\qc\\pardirnatural' \
-        + '\\f0\\fs144\\fsmilli51200 \\cf1 \\expnd0\\expndtw0\\kerning0 \\uc0 ' + \
+        + '\\f0\\fs' + str(font_size * 2) + '\\fsmilli51200 \\cf1 \\expnd0\\expndtw0\\kerning0 \\uc0 ' + \
         convert_unicode_chars(text.lstrip("\n")) + '}'
     slide = SuperScRTF(slide)
     slide = underline_slide(slide)
@@ -62,12 +62,17 @@ def MakeRTFBlob(text, font_colour):
 
 
 def SlideBlock(text, screen_size, font_colour, background_colour):
+    if screen_size[0] == '1080':
+        font_size = 90
+    else:
+        font_size = 72
+
     return '<RVDisplaySlide backgroundColor="' + \
         " ".join(background_colour) + \
         '" enabled="1" highlightColor="0 0 0 0" hotKey="" label="" notes="" slideType="1" sort_index="0" UUID="' + \
         make_uuid() + \
         '" drawingBackgroundColor="1" chordChartPath="" serialization-array-index="0"><cues containerClass="NSMutableArray"></cues><displayElements containerClass="NSMutableArray"><RVTextElement displayDelay="0" displayName="Default" locked="0" persistent="0" typeID="0" fromTemplate="0" bezelRadius="0" drawingFill="0" drawingShadow="0" drawingStroke="0" fillColor="1 1 1 1" rotation="0" source="" adjustsHeightToFit="1" verticalAlignment="0" RTFData="' + \
-        MakeRTFBlob(text, font_colour) + \
+        MakeRTFBlob(text, font_colour, font_size) + \
         '" revealType="0" serialization-array-index="0"><_-RVRect3D-_position x="0" y="0" z="0" width="' + \
         screen_size[1] + \
         '" height="' + \
