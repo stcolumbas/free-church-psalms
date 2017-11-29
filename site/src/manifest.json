@@ -1,0 +1,10 @@
+{
+  "short_name": "Psalms",
+  "name": "Psalms",
+  "theme_color": "#3a3a3a",
+  "background_color": "#f9f9f9",
+  "display": "fullscreen",
+  "icons": [
+  ],
+  "start_url": "index.html"
+}

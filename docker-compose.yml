@@ -1,0 +1,13 @@
+version: '2'
+
+volumes:
+  output: {}
+
+services:
+  psalms:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./output:/psalms/output
+    command: bash scripts/build_files.sh

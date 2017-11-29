@@ -1,13 +1,10 @@
-# coding: utf-8
-
 # convert to a single pdf - using latex
-
-import os
 import json
+import os
 import re
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+
+from utils import (load_scottish_psalter, load_sing_psalms, make_output_folder,
+                   remove_folder, zip_folder)
 
 
 def create_latex_body(psalms, toc_name, output_name):
@@ -44,28 +41,18 @@ def create_latex_body(psalms, toc_name, output_name):
 
 
 def convert2latex():
-    """Convert both sets of Psalms to text files and
-    save in output/plain_text
-    """
+    """Convert both sets of Psalms to text files and save in output/plain_text"""
+    output_folder = make_output_folder(["tex"])
     # sing psalms
-    output_folder = os.path.join("..", "output", "pdf")
-    try:
-        os.makedirs(output_folder)
-    except Exception, e:
-        print e
-    with open(os.path.join("..", "masters", "sing_psalms.json"), 'r') as f:
-        psalms = json.loads(f.read())
+    psalms = load_sing_psalms()
     create_latex_body(psalms, "Sing Psalms", os.path.join(output_folder, 'Sing Psalms.tex'))
 
     # trad psalms
-    output_folder = os.path.join("..", "output", "pdf")
-    try:
-        os.makedirs(output_folder)
-    except Exception, e:
-        print e
-    with open(os.path.join("..", "masters", "traditional_1650.json"), 'r') as f:
-        psalms = json.loads(f.read())
-    create_latex_body(psalms, "Traditional Scottish Psalter", os.path.join(output_folder, 'Traditional 1650.tex'))
+    psalms = load_scottish_psalter()
+    create_latex_body(psalms, "Scottish Psalter", os.path.join(output_folder, 'Scottish Psalter.tex'))
+
+    zip_folder(output_folder)
+    remove_folder(output_folder)
 
 if __name__ == '__main__':
     convert2latex()

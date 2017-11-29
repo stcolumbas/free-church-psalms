@@ -1,4 +1,9 @@
 output/
+venv/
+dist/
+*.zip
+node_modules/
+elm-stuff/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

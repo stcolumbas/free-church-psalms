@@ -1,0 +1,5 @@
+halo==0.0.7
+python-docx==0.8.6
+python-pptx==0.5.6
+rtfunicode==1.4
+requests==2.18.4
