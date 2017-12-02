@@ -178,11 +178,23 @@ introView : Bool -> Html Msg
 introView showButton =
     Html.div [ A.class "" ]
         [ Html.div [ A.class "text-left" ]
-            [ Html.p [] [ Html.text "Sing Psalms and Scottish Psalter slides for your screens." ]
-            , Html.p [] [ Html.text "What?" ]
-            , Html.p [] [ Html.text "Why?" ]
-            , Html.p [] [ Html.text "copyright of Free Church of Scotland, reproduced with permission" ]
-            , Html.p [] [ Html.text "Email help@stcsfc.org for blah blah" ]
+            [ Html.p [] [ Html.text "You can find both Sing Psalms and Scottish Psalter slides for your screens here. As an increasing number of churches use screens for their worship instead of printed psalters, these resources are here to make it easier for you to display the psalm words quickly and easily." ]
+            , Html.br [] []
+            , Html.p [] [ Html.text "The psalms are available in a full range of formats, so you can choose the precise version which best suits your needs. Just click the button below to begin." ]
+            , Html.br [] []
+            , Html.p []
+                [ Html.text "If you find a problem, need help or want to request an additional format, please contact "
+                , Html.a [ A.href "mailto:help@stcsfc.org?Subect=Psalm%20Slides" ] [ Html.text "help@stcsfc.org" ]
+                , Html.text "."
+                ]
+            , Html.br [] []
+            , Html.p [] [ Html.text "\"Sing Psalms\" words are copyright of the Free Church of Scotland and are reproduced here with permission from the Psalmody Committee. These files are distributed, solely, for non-commercial use." ]
+            , Html.br [] []
+            , Html.p []
+                [ Html.text "For more information about our psalm singing tradition, and for full copyright permissions, please click "
+                , Html.a [ A.href "https://freechurch.org/resources/praise/sing-psalms" ] [ Html.text "here" ]
+                , Html.text "."
+                ]
             , spacer
             ]
         , if showButton then
