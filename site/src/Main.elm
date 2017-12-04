@@ -22,7 +22,7 @@ initialModel =
     { step = Intro
     , fileFormat = None
     , colour = Nothing
-    , underlined = Nothing
+    , underlined = Just True
     , ratioOrResolution = Nothing
     }
 
@@ -95,7 +95,7 @@ update msg model =
                             | step = ChooseOptions format
                             , fileFormat = format
                             , colour = Nothing
-                            , underlined = Nothing
+                            , underlined = Just True
                             , ratioOrResolution = Nothing
                         }
 
@@ -188,7 +188,11 @@ introView showButton =
                 , Html.text "."
                 ]
             , Html.br [] []
-            , Html.p [] [ Html.text "\"Sing Psalms\" words are copyright of the Free Church of Scotland and are reproduced here with permission from the Psalmody Committee. These files are distributed, solely, for non-commercial use." ]
+            , Html.p []
+                [ Html.text "\"Sing Psalms\" words are copyright of the Free Church of Scotland and are reproduced here with permission from the Psalmody and Praise Committee. These files are distributed, solely, for non-commercial use. Copyright queries should be directed to the Clerk to the Psalmody and Praise Committee, Free Church of Scotland, 15 North Bank Street, The Mound, Edinburgh, EH1 2LP, or by email: "
+                , Html.a [ A.href "mailto:psalmodyandpraise@freechurch.org" ] [ Html.text "psalmodyandpraise@freechurch.org" ]
+                , Html.text "."
+                ]
             , Html.br [] []
             , Html.p []
                 [ Html.text "For more information about our psalm singing tradition, and for full copyright permissions, please click "
@@ -265,6 +269,7 @@ chooseOptions model format =
             [ Html.h4 [ A.class "my-2" ] [ Html.text "Underlined" ]
             , selectedButton (maybeBool model.underlined True) [ E.onClick <| UnderlinedClicked True ] [ Html.text "With underlining" ]
             , selectedButton (maybeBool model.underlined False) [ E.onClick <| UnderlinedClicked False ] [ Html.text "Without underlining" ]
+            , Html.p [ A.class "pt-2" ] [ Html.text "(The underlined version has the text as printed in the Sing Psalms volumes - underlining indicates where syllables are run together.)" ]
             ]
         , resolutionOrRatioList format model.ratioOrResolution
         ]
