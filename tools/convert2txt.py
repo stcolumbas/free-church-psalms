@@ -24,13 +24,13 @@ def convert2txt():
     save in output/plain_text
     """
     # sing psalms
-    output_folder = make_output_folder(["Plain Text", "Sing Psalms"])
+    output_folder = make_output_folder(["PlainText", "Sing Psalms"])
     psalms = load_sing_psalms()
     for psalm in psalms:
         write_text_file(psalm, output_folder, psalm['file_name'])
 
     # trad psalms
-    output_folder = make_output_folder(["Plain Text", "Scottish Psalter"])
+    output_folder = make_output_folder(["PlainText", "Scottish Psalter"])
     psalms = load_scottish_psalter()
     for psalm in psalms:
         write_text_file(psalm, output_folder, psalm['file_name'])
