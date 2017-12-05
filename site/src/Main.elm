@@ -156,13 +156,13 @@ viewHelp model =
             Html.div [] [ introView True ]
 
         ChooseFileFormat ->
-            Html.div []
+            Html.div [ A.class "pb-8" ]
                 [ introView False
                 , chooseFormat model.fileFormat
                 ]
 
         ChooseOptions format ->
-            Html.div []
+            Html.div [ A.class "pb-8" ]
                 [ introView False
                 , chooseFormat format
                 , case format of
@@ -189,7 +189,7 @@ introView showButton =
                 ]
             , Html.br [] []
             , Html.p []
-                [ Html.text "\"Sing Psalms\" words are copyright of the Free Church of Scotland and are reproduced here with permission from the Psalmody and Praise Committee. These files are distributed, solely, for non-commercial use. Copyright queries should be directed to the Clerk to the Psalmody and Praise Committee, Free Church of Scotland, 15 North Bank Street, The Mound, Edinburgh, EH1 2LP, or by email: "
+                [ Html.text "\"Sing Psalms\" words are copyright of the Free Church of Scotland and are reproduced here at the request of, and with permission from, the Psalmody and Praise Committee. These files are distributed, solely, for non-commercial use. Copyright queries should be directed to the Clerk to the Psalmody and Praise Committee, Free Church of Scotland, 15 North Bank Street, The Mound, Edinburgh, EH1 2LP, or by email: "
                 , Html.a [ A.href "mailto:psalmodyandpraise@freechurch.org" ] [ Html.text "psalmodyandpraise@freechurch.org" ]
                 , Html.text "."
                 ]
