@@ -206,6 +206,7 @@ introView showButton =
                 [ button
                     [ E.onClick GetStartedClicked
                     , A.class "bg-dark"
+                    , A.id "get-started"
                     ]
                     [ Html.text "Get Started" ]
                 ]
@@ -250,10 +251,10 @@ chooseFormat : FileFormat -> Html Msg
 chooseFormat format =
     Html.div []
         [ Html.h3 [ A.class "my-2" ] [ Html.text "Pick a Format" ]
-        , selectedButton (format == PlainText) [ E.onClick <| FormatClicked PlainText ] [ Html.text "Plain Text" ]
-        , selectedButton (format == PDF) [ E.onClick <| FormatClicked PDF ] [ Html.text "PDF" ]
-        , selectedButton (format == PowerPoint) [ E.onClick <| FormatClicked PowerPoint ] [ Html.text "PowerPoint" ]
-        , selectedButton (format == ProPresenter) [ E.onClick <| FormatClicked ProPresenter ] [ Html.text "ProPresenter" ]
+        , selectedButton (format == PlainText) [ A.id "plain-text", E.onClick <| FormatClicked PlainText ] [ Html.text "Plain Text" ]
+        , selectedButton (format == PDF) [ A.id "pdf", E.onClick <| FormatClicked PDF ] [ Html.text "PDF" ]
+        , selectedButton (format == PowerPoint) [ A.id "powerpoint", E.onClick <| FormatClicked PowerPoint ] [ Html.text "PowerPoint" ]
+        , selectedButton (format == ProPresenter) [ A.id "propresenter", E.onClick <| FormatClicked ProPresenter ] [ Html.text "ProPresenter" ]
         ]
 
 
@@ -360,7 +361,12 @@ finalLink model =
             Html.text ""
 
         Just l ->
-            Html.a [ A.class ("w-full bg-dark " ++ buttonClasses), A.href l ] [ Html.text "Click to download your Psalms" ]
+            Html.a
+                [ A.class ("w-full bg-dark " ++ buttonClasses)
+                , A.href l
+                , A.id "click-to-download"
+                ]
+                [ Html.text "Click to download your Psalms" ]
 
 
 type Link
@@ -392,7 +398,7 @@ link2String : Link -> String
 link2String (Link format colour underlined ratioOrResolution) =
     case format of
         PlainText ->
-            "/output/PlainText.Zip"
+            "/output/PlainText.zip"
 
         _ ->
             "/output/"
