@@ -8,5 +8,5 @@ python-docx==0.8.6
 python-pptx==0.5.6
 requests==2.18.4
 rtfunicode==1.4
-urllib3==1.22
+urllib3==1.26.5
 XlsxWriter==1.0.2
